@@ -10,7 +10,17 @@
     </head>
     <body>
         <header>
-            <h1>Rock-Paper-Showdown</h1>
+            {{#if logged_in}}
+            <nav>
+           <button class="btn btn-primary" type="button">View Messages</button> 
+           <button class="btn btn-primary" type="button">Challeges</button>     
+            </nav>
+             <nav>
+           <button class="btn btn-primary" type="button">Logout</button> 
+           <button class="btn btn-primary" type="button">Change Name</button>     
+            </nav>
+            {{/if}}
+
         </header>
         <main>
             {{{body}}}

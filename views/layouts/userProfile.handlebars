@@ -10,7 +10,16 @@
     </head>
     <body>
         <header>
-            <h1>Rock-Paper-Showdown</h1>
+        <nav>
+        <button class="btn btn-primary" type="button"> Back </button>   
+        </nav>
+            {{#if logged_in}}
+            {{#if user.username}}
+            <h1>{{user.username}}</h1>
+
+            {{/if}}
+            {{/if}}
+
         </header>
         <main>
             {{{body}}}
