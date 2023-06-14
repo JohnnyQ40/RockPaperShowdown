@@ -1,11 +1,13 @@
 <!--This is used for generating the user profile-->
 <section>
- <div>
-<h2>Games played:</h2>
-<h2>Wins:</h2>
-<h2>Loses:</h2>
-<h2>Ties:</h2>
-<h2>Percentage:</h2>    
+  <div>
+<!--in progress: adding wins, loses, and ties together -->
+<h2>Games played: {{user.wins + user.loses + user.ties}}</h2>
+<h2>Wins:{{user.wins}}</h2>
+<h2>Loses:{{user.loses}}</h2>
+<h2>Ties:{{user.ties}}</h2>
+<!--in progess: applying a proper syntex to create win percentage-->
+<h2>Win Percentage:{{user.wins / user.loses}}</h2>    
 </div>
 <!--Placeholer for Badge and Pie Chart-->
 
