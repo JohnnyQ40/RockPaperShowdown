@@ -26,11 +26,11 @@ Game.init(
             },
         },
         user1_choice: {
-            type: DataTypes.String,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         user2_choice: {
-            type: DataTypes.String,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         winner_id: {
