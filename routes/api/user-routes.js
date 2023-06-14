@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Game, User } = require('../../models');
+const { Game, User, GameChat } = require('../../models');
 
 
 
@@ -15,7 +15,8 @@ router.get('/', (req, res) => {
    //-- This is used for game room specific search?
    router.get('/:id', (req, res) => {
        Game.findByPk(req.params.id, {
-           include: [{ model: User}]
+           include: [{ model: User,
+          chat: GameChat}]
        }).then((gameData) => {
            res.json(gameData)
        })

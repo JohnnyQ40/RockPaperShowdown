@@ -19,11 +19,11 @@ Game.belongsTo(User, {
     foreignKey: 'user2_id',
 });
 
-GameChat.hasOne(Game, {
-    foreignKey: 'id'
-})
+GameChat.hasOne(Game, { 
+    foreignKey: 'game_id'
+});
 
-GameChat.belongsTo(User, {
+GameChat.belongsTo(Game, {
     foreignKey: 'user1_id',
 });
 
