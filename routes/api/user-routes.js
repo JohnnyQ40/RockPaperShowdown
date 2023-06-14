@@ -1,51 +1,45 @@
-const router = require('express').Router();
-const { Game, User, GameChat } = require('../../models');
+const router = require("express").Router();
+const { User } = require("../../models");
 
-
-
-//-- This is used for game room display page?
-router.get('/', (req, res) => {
-    Game.findAll({
-       include: [{ model: User}] 
-    }).then((gameData) => {
-       res.json(gameData)
+// find by username or email?
+router.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  User.findOne({ where: { username } })
+    .then((userData) => {
+      if (!userData) {
+        return res.status(401).json({ error: "Invalid username or password" });
+      }
+      if (password !== userData.password) {
+        return res.status(401).json({ error: "Invalid username or password" });
+      }
+      res.json({ message: "Login successful", user: userData });
     })
-   });
-   
-   //-- This is used for game room specific search?
-   router.get('/:id', (req, res) => {
-       Game.findByPk(req.params.id, {
-           include: [{ model: User,
-          chat: GameChat}]
-       }).then((gameData) => {
-           res.json(gameData)
-       })
-       })
-   
-   //-- This is used to create a new game room. 
-   //-- Also used when creating a room when users 'challenge' eachother via their profile pages
-   router.post('/', (req, res) => {
-       Game.create(req.body)
-       .then((newGame) => {
-           res.json(newGame);
-       })
-       .catch((err) => {
-           res.json(err)
-       })
-   })
-   
-   //-- This is used to delete/close/finish a game room
-   
-   router.delete('/:id', (req, res) => {
-       Game.destroy(req.body, {
-         where: {
-           id: req.params.id,
-         }
-       })
-       .then((delGame) => {
-         res.json(delGame);
-       })
-       .catch((err) => {
-         res.json(err)
-       })
-     });
+    .catch((error) => {
+      console.error("Error:", error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
+// by username or email?
+router.post("/register", (req, res) => {
+  const { username, password } = req.body;
+  User.findOne({ where: { username } })
+    .then((existingUser) => {
+      if (existingUser) {
+        return res.status(409).json({ error: "Username is taken. Try another one." });
+      }
+      User.create({ username, password })
+        .then((newUser) => {
+          res
+            .status(201)
+            .json({ message: "User registered!", user: newUser });
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          res.status(500).json({ error: "Internal server error" });
+        });
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      res.status(500).json({ error: "Internal server error" });
+    });
+});
