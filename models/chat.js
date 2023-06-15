@@ -1,7 +1,7 @@
-const { Chat, DataTypes } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Chat {
+class Chat extends Model{
   constructor(id, user1_id, user2_id) {
     this.id = id;
     this.user1_id = user1_id;
