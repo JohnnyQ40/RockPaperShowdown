@@ -2,25 +2,25 @@ const router = require("express").Router();
 const { User } = require("../../models");
 
 // find by username or email?
-router.post("/login", (req, res) => {
+router.post("/login", async (req, res) => {
   const { username, password } = req.body;
-  User.findOne({ where: { username } })
-    .then((userData) => {
+  try {
+  const userData = await User.findOne({ where: { username } });
       if (!userData) {
         return res.status(401).json({ error: "Invalid username or password" });
       }
-      if (password !== userData.password) {
+      const validPassword = userData.checkPassword(password);
+      if (!validPassword) {
         return res.status(401).json({ error: "Invalid username or password" });
       }
       res.json({ message: "Login successful", user: userData });
-    })
-    .catch((error) => {
+    } catch(error) {
       console.error("Error:", error);
       res.status(500).json({ error: "Internal server error" });
-    });
+    }
 });
 // by username or email?
-router.post("/register", (req, res) => {
+router.post("/join", (req, res) => {
   const { username, password } = req.body;
   User.findOne({ where: { username } })
     .then((existingUser) => {
@@ -43,3 +43,13 @@ router.post("/register", (req, res) => {
       res.status(500).json({ error: "Internal server error" });
     });
 });
+
+router.get("/join", (req, res) => {
+  res.render("join");
+});
+
+router.get("/login", (req, res) => {
+  res.render("login");
+});
+
+module.exports = router;
