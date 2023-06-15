@@ -19,6 +19,7 @@ router.post("/login", (req, res) => {
       res.status(500).json({ error: "Internal server error" });
     });
 });
+
 // by username or email?
 router.post("/register", (req, res) => {
   const { username, password } = req.body;
@@ -43,3 +44,5 @@ router.post("/register", (req, res) => {
       res.status(500).json({ error: "Internal server error" });
     });
 });
+
+module.exports = { User, Game, router };

@@ -1,7 +1,7 @@
 const User = require('./user');
 const Game = require('./game');
-const GameChat = require('./chat');
-const UserChat = require('./chat');
+const { GameChat, UserChat } = require('./chat');
+
 
 User.hasMany(Game, {
     foreignKey: 'user1_id',
@@ -10,6 +10,8 @@ User.hasMany(Game, {
 User.hasMany(Game, {
     foreignKey: 'user2_id',
 });
+
+User.hasMany(UserChat)
 
 Game.belongsTo(User, {
     foreignKey: 'user1_id',
@@ -31,7 +33,13 @@ GameChat.belongsTo(User, {
     foreignKey: 'user2_id',
 });
 
+UserChat.belongsTo(User, {
+    foreignKey: 'user1_id',
+})
 
+UserChat.belongsTo(User, {
+    foreignKey: 'user2_id',
+})
 
 
 module.exports = { User, Game, GameChat, UserChat };
