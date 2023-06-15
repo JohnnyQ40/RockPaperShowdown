@@ -1,0 +1,11 @@
+<!--Generate the Room Selection page-->
+<section>
+<!--Room Selection list-->
+{{#each games as |game|}}
+{{> game-details}}
+{{/each}}
+
+<button type="button" id="toRoomCreation">Make Room</button>
+<button type="button" id="toGamePage">Join Open Game</button> 
+<button type = "button" id="toUserPage">Quit</button>
+</section>
