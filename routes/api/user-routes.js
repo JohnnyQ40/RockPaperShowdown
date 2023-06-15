@@ -19,6 +19,7 @@ router.post("/login", async (req, res) => {
       res.status(500).json({ error: "Internal server error" });
     }
 });
+
 // by username or email?
 router.post("/join", (req, res) => {
   const { username, password } = req.body;
@@ -52,4 +53,4 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-module.exports = router;
+module.exports = { User, Game, router };

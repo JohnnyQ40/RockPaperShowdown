@@ -1,13 +1,13 @@
-// const { Chat, DataTypes } = require("sequelize");
-// const sequelize = require("../config/connection");
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
-// class Chat {
-//   constructor(id, user1_id, user2_id) {
-//     this.id = id;
-//     this.user1_id = user1_id;
-//     this.user2_id = user2_id;
-//   }
-// }
+class Chat extends Model{
+  constructor(id, user1_id, user2_id) {
+    this.id = id;
+    this.user1_id = user1_id;
+    this.user2_id = user2_id;
+  }
+}
 
 // class GameChat extends Chat {
 //   constructor(id, user_1, user_2, game_id) {
