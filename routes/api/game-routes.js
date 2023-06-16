@@ -49,4 +49,4 @@ router.delete('/:id', (req, res) => {
     })
   });
   
-module.exports = { User, Game, router };
+module.exports =  router ;
