@@ -53,4 +53,4 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-module.exports = { User, Game, router };
+module.exports =  router ;

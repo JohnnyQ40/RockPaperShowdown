@@ -11,7 +11,7 @@ User.hasMany(Game, {
     foreignKey: 'user2_id',
 });
 
-User.hasMany(UserChat)
+// User.hasMany(UserChat)
 
 Game.belongsTo(User, {
     foreignKey: 'user1_id',
@@ -33,13 +33,13 @@ Game.belongsTo(User, {
 //     foreignKey: 'user2_id',
 // });
 
-UserChat.belongsTo(User, {
-    foreignKey: 'user1_id',
-})
+// UserChat.belongsTo(User, {
+//     foreignKey: 'user1_id',
+// })
 
-UserChat.belongsTo(User, {
-    foreignKey: 'user2_id',
-})
+// UserChat.belongsTo(User, {
+//     foreignKey: 'user2_id',
+// })
 
 
 module.exports = { User, Game, GameChat, UserChat };
