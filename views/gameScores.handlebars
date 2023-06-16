@@ -1,0 +1,19 @@
+<section>
+    <div>
+<h2>Games played: {{user.wins + user.loses + user.ties}}</h2>
+ <h2>User Wins:{{user.wins}}</h2>   
+ <h2>Enemy Wins:{{user.loses}}</h2>
+ <h2>Ties:{{user.ties}}</h2>
+ {{#if user.wins ">" user.lose }}
+ <h2> You Win!</h2>
+ {{#else}}
+    <h2> You Lose! </h2>
+ {{/if}}
+    </div>
+
+    <div>
+ <button class="btn btn-primary" type="button" id="rematch">Rematch</button>
+ <button class="btn btn-primary" type="button" id="home">Home</button>
+ <button class="btn btn-primary" type="button" id="backChat">Chat</button>       
+    </div>
+</section>
