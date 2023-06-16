@@ -2,26 +2,26 @@ const router = require("express").Router();
 const { User } = require("../../models");
 
 // find by username or email?
-router.post("/login", async (req, res) => {
+router.post("/login", (req, res) => {
   const { username, password } = req.body;
-  try {
-  const userData = await User.findOne({ where: { username } });
+  User.findOne({ where: { username } })
+    .then((userData) => {
       if (!userData) {
         return res.status(401).json({ error: "Invalid username or password" });
       }
-      const validPassword = userData.checkPassword(password);
-      if (!validPassword) {
+      if (password !== userData.password) {
         return res.status(401).json({ error: "Invalid username or password" });
       }
       res.json({ message: "Login successful", user: userData });
-    } catch(error) {
+    })
+    .catch((error) => {
       console.error("Error:", error);
       res.status(500).json({ error: "Internal server error" });
-    }
+    });
 });
 
 // by username or email?
-router.post("/join", (req, res) => {
+router.post("/register", (req, res) => {
   const { username, password } = req.body;
   User.findOne({ where: { username } })
     .then((existingUser) => {
@@ -43,14 +43,6 @@ router.post("/join", (req, res) => {
       console.error("Error:", error);
       res.status(500).json({ error: "Internal server error" });
     });
-});
-
-router.get("/join", (req, res) => {
-  res.render("join");
-});
-
-router.get("/login", (req, res) => {
-  res.render("login");
 });
 
 module.exports = { User, Game, router };
