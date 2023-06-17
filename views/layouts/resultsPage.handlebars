@@ -12,9 +12,9 @@
     <body>
         <header>
             {{!--this is to display the correct username and stats--}}
-            {{#if user.username && game.user1_id }}
+            {{#cmp user.username "&&" game.user1_id }}
             <h1>You</h1>
-            {{/if}}
+            {{/cmp}}
            
         </header>
         <main>
@@ -22,9 +22,9 @@
 
         </main>
        <footer>
-         {{#if user.username && game.user2_id }}
+         {{#cmp user.username "&&" game.user2_id }}
             <h1>Enemy</h1>
-            {{/if}}
+            {{/cmp}}
        </footer>
     </body>
 </html>
