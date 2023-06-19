@@ -1,1 +1,30 @@
 <!-- This handlebar is used for generating the results page layout-->
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Rock Paper Showdown</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/jass.css">
+    </head>
+    <body>
+        <header>
+            {{!--this is to display the correct username and stats--}}
+            {{#cmp user.username "&&" game.user1_id }}
+            <h1>You</h1>
+            {{/cmp}}
+           
+        </header>
+        <main>
+            {{{body}}}
+
+        </main>
+       <footer>
+         {{#cmp user.username "&&" game.user2_id }}
+            <h1>Enemy</h1>
+            {{/cmp}}
+       </footer>
+    </body>
+</html>

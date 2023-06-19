@@ -2,12 +2,12 @@
 <section>
   <div>
 <!--in progress: adding wins, loses, and ties together -->
-<h2>Games played: {{user.wins + user.loses + user.ties}}</h2>
+<h2>Games played: {{#cmp user.wins "+" user.loses "+" user.ties}}{{/cmp}}</h2>
 <h2>Wins:{{user.wins}}</h2>
 <h2>Loses:{{user.loses}}</h2>
 <h2>Ties:{{user.ties}}</h2>
 <!--in progess: applying a proper syntex to create win percentage-->
-<h2>Win Percentage:{{user.wins / user.loses}}</h2>    
+<h2>Win Percentage:{{#cmp user.wins "/" user.loses}}{{/cmp}}</h2>    
 </div>
 <!--Placeholer for Badge and Pie Chart-->
 
