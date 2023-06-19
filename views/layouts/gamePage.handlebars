@@ -13,15 +13,24 @@
 
         <header>
             {{!--this is to display the correct username and stats--}}
+            <div>
             {{#cmp user.username "&&" game.user1_id }}
             <h1>{{user.username}}</h1>
             {{!-- stats displayed --}}
-
+            <h2>Wins: {{user.wins}}</h2>
+            <h2>Loses: {{user.loses}}</h2>
+            <h2>Ties: {{user.ties}}</h2>
             {{/cmp}}
+            </div>
+            <div>
             {{#cmp user.username "&&" game.user2_id }}
             <h1>{{user.username}}</h1>
-            
+            {{!-- stats displayed --}}
+            <h2>Wins: {{user.wins}}</h2>
+            <h2>Loses: {{user.loses}}</h2>
+            <h2>Ties: {{user.ties}}</h2>
             {{/cmp}}
+            </div>
         </header>
         <main>
             {{{body}}}
