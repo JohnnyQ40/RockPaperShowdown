@@ -23,11 +23,13 @@ io.on('connection', (socket) =>{
         console.log("player 2 has selected: "+selection);
     }
   });
-  if(player1 && player2){
+});
+function runGame(){
+      if(player1 && player2){
     game(player1, player2);
   }
-});
-
+}
+runGame();
 server.listen(3002, () =>{
     console.log('listening on *:3002');
 });

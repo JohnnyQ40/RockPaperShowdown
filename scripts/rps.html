@@ -28,6 +28,11 @@
             width:50%;
             padding: 10px;
         }
+        .results-div{
+            margin:auto;
+            width: 50%;
+            padding: 10px;
+        }
     </style>
 </head>
 
@@ -43,12 +48,16 @@
             <img id="selection-image">
         </div>
         </div>
+        <div id="results-div">
+            
+        </div>
     
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script>
         let selection = 0;
         var socket = io();
         var draftDiv = document.getElementById('draft-div');
+        var resultsDiv = document.getElementById('results-div');
         var timeEl = document.getElementById('time');
         var button0 = document.getElementById('button0');
         var button1 = document.getElementById('button1');
@@ -78,6 +87,18 @@
                     draftDiv.style.display = "none";
                     console.log(selection +" selected")
                     socket.emit('selection', selection);
+                    var matchResult = document.createElement('h2');
+                    matchResult.textContent = "Player 1 Wins!"
+                    resultsDiv.appendChild(matchResult);
+                    var icon = document.createElement('img');
+                    if(selection==0){
+                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/rock.png";
+                    }else if(selection==1){
+                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/paper.png";
+                    }else{
+                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/scissors.png";
+                    }
+                        resultsDiv.appendChild(icon);
                 }
 
                 setTime();
