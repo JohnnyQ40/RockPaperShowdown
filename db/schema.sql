@@ -5,3 +5,5 @@ CREATE DATABASE test;
 USE test;
 
 DROP TABLE IF EXISTS users;
+
+
