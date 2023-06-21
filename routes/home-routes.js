@@ -5,7 +5,7 @@ router.get('/roomCreation', (req, res) => {
 });
 
 router.get('/', (req, res) => {
-    res.render("layouts/main");
+    res.render("homePage");
 });
 
 router.get('/gamePage', (req, res) => {
@@ -48,9 +48,9 @@ router.get('/gameScores', (req, res) => {
     res.render("gameScores");
 });
 
-router.get('/homePage', (req, res) => {
-    res.render("homePage");
-});
+ router.get('/homePage', (req, res) => {
+     res.render("homePage");
+ });
 
 router.get('/join', (req, res) => {
     res.render("join");
