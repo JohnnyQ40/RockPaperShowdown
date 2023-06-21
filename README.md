@@ -37,5 +37,5 @@ If you have questions you can contact us at:
 - Email: kylem021199@gmail.com
 - GitHub:[lailiel] (https://github.com/lailiel)
 - Email: abilivick@gmail.com
-- GitHub:[Francisjung17] (https://github.com/Francisjung17)
+- GitHub:[Francisjung17] (https://github.com/Francisjung)
 - Email: francisjung17@gmail.com
