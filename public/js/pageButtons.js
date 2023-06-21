@@ -14,12 +14,7 @@ document.getElementById('login').addEventListener('click', function (event) {
     
 });
 
-//Home Page button
-document.getElementById('toHomePage').addEventListener('click', function (event) {
 
-    window.location.href = "/homePage";
-    
-});
 
 //Search Page button
 document.getElementById('toSearchPage').addEventListener('click', function (event) {
@@ -76,5 +71,10 @@ document.getElementById('toGameScores').addEventListener('click', function (even
     
 });
 
+//Home Page button
+document.getElementById('toHomePage').addEventListener('click', function (event) {
 
+    window.location.href = "/homePage";
+    
+});
 
