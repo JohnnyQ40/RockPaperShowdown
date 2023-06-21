@@ -65,6 +65,7 @@
 
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script>
+        //Declares instance variables
         let selection = 0;
         var socket = io();
         var draftDiv = document.getElementById('draft-div');
@@ -76,31 +77,33 @@
         var input = document.getElementById('input');
 
         var secondsLeft = 15;
-
+        //Sets the timer for the draft phase
         function setTime() {
             console.log('timer set')
-            // Sets interval in variable
-            var timerInterval = setInterval(function () {
+            let timerInterval = setInterval(function () {
                 secondsLeft--;
                 timeEl.textContent = "Choose your fighter: " + secondsLeft;
 
                 if (secondsLeft === 0) {
-                    // Stops execution of action at set interval
                     clearInterval(timerInterval);
-                    // Calls function to create and append image
                     endDraft();
                 }
 
             }, 1500);
         }
-
+        //At the end of the draft phase, the original menu is hidden and the results of the match are decided and shown.
         function endDraft() {
             draftDiv.style.display = "none";
             console.log(selection + " selected")
             socket.emit('selection', selection);
             var draw = document.createElement('h1');
             var matchResult = document.createElement('h2');
-            let winner = game(selection, 0);
+
+            //Unfortunately because of the issues with socket, the game is currently run by a computer :(
+            let cpu = Math.floor(Math.random() * 3);
+            console.log("cpu selected "+cpu);
+            //Uses a helped method to run game logic
+            let winner = game(selection, cpu);
             draw.textContent = "Fire!";
             if (winner == 0) {
                 matchResult.textContent = "Players 1 and 2 Tie!"
@@ -112,7 +115,8 @@
             }
             resultsDiv.appendChild(draw);
             resultsDiv.appendChild(matchResult);
-            var icon = document.createElement('img');
+            //Decides which icon to show then appends it to the page.
+            let icon = document.createElement('img');
             if (selection == 0 && winner != 2) {
                 icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/Rock.png";
             } else if (selection == 1 && winner != 2) {
@@ -127,10 +131,17 @@
                 icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/Rock.png";
             }
             resultsDiv.appendChild(icon);
+            //Creates a button that allows the user to play again
+            let playAgain = document.createElement('button');
+            playAgain.textContent = "Play Again";
+            resultsDiv.appendChild(playAgain);
+            playAgain.addEventListener('click', function(e){
+                window.location.reload();
+            });
         }
-
+        //timer is called
         setTime();
-
+        //Event listeners for various buttons
         button0.addEventListener('click', function (e) {
             selection = 0;
             console.log(selection);
@@ -153,17 +164,17 @@
             item.textContent = selection;
             draftDiv.appendChild(item);
         });
-
+        //logic for game
         function game(choice1, choice2) {
             if (choice1 == choice2) {
                 console.log('Tie');
                 return 0;
             } else if ((choice1 + 1) % 3 == choice2 % 3) {
                 console.log('Player 1 wins');
-                return 1;
+                return 2;
             } else {
                 console.log('Player 2 wins');
-                return 2;
+                return 1;
             }
         }
     </script>
