@@ -1,6 +1,25 @@
 const router = require("express").Router();
 const { User } = require("../../models");
 
+router.get('/:username', async (req, res) => {
+  try {
+    const username = req.params.username;
+
+    const user = await User.findOne({ where: { name: username } });
+
+    if (user) {
+      const userStats = user.get({ plain: true});
+
+      res.render('user', { user: userStats});
+    } else {
+      res.status(404).render('404')
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
+});
+
 // find by username or email?
 // router.post("/login", async (req, res) => {
 //   const { username, password } = req.body;

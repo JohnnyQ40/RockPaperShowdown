@@ -2,59 +2,59 @@ const router = require("express").Router();
 const { User } = require("../models")
 
 router.get('/roomCreation', (req, res) => {
-    res.render("roomCreation");
+    res.render("roomCreation", { layout : 'roomCreation' });
 });
 
 router.get('/', (req, res) => {
-    res.render("layouts/main");
+    res.render("homePage", { layout : 'main' });
 });
 
 router.get('/gamePage', (req, res) => {
-    res.render("layouts/gamePage");
+    res.render("gamePage", { layout : 'gamePage' });
 });
 
-router.get('/main', (req, res) => {
-    res.render("layouts/main");
+ router.get('/main', (req, res) => {
+    res.render("main"), { layout : 'roomCreation' };
 });
 
 router.get('/resultsPage', (req, res) => {
-    res.render("layouts/resultsPage");
+    res.render("resultsPage"), { layout : 'resultsPage' };
 });
 
 router.get('/room', (req, res) => {
-    res.render("layouts/room");
+    res.render("room"), { layout : 'room' };
 });
 
 router.get('/scorePage', (req, res) => {
-    res.render("layouts/scorePage");
+    res.render("scorePage"), { layout : 'scorePage' };
 });
 
 router.get('/userPage', (req, res) => {
-    res.render("layouts/userPage");
+    res.render("userPage"), { layout : 'userPage' };
 });
 
 router.get('/userProfile', (req, res) => {
-    res.render("layouts/userProfile");
+    res.render("userProfile"), { layout : 'userProfile' };
 });
 
 router.get('/gameChoice', (req, res) => {
-    res.render("gameChoice");
+    res.render("gameChoice"), { layout : 'gameChoice' };
 });
 
 router.get('/gameResults', (req, res) => {
-    res.render("gameResults");
+    res.render("gameResults") , { layout : 'gameResults' };
 });
 
 router.get('/gameScores', (req, res) => {
-    res.render("gameScores");
+    res.render("gameScores"), { layout : 'gameScores' };
 });
 
 router.get('/homePage', (req, res) => {
-    res.render("homePage");
+    res.render("homePage"), { layout : 'homePage' };
 });
 
 router.get('/join', (req, res) => {
-    res.render("join");
+    res.render("join"), { layout : 'join' };
 });
 
 router.post("/join", (req, res) => {
@@ -82,7 +82,7 @@ router.post("/join", (req, res) => {
   });
 
 router.get('/login', (req, res) => {
-    res.render("login");
+    res.render("login"), { layout : 'login' };
 });
 
 router.post("/login", async (req, res) => {
@@ -104,26 +104,26 @@ router.post("/login", async (req, res) => {
   });
 
 router.get('/messagePage', (req, res) => {
-    res.render("messagePage");
+    res.render("messagePage"), { layout : 'messagePage' };
 });
 
 router.get('/roomCreation', (req, res) => {
-    res.render("roomCreation");
+    res.render("roomCreation"), { layout : 'roomCreation' };
 });
 
 router.get('/roomSelection', (req, res) => {
-    res.render("roomSelection");
+    res.render("roomSelection"), { layout : 'roomSelection' };
 });
 
 router.get('/user', (req, res) => {
-    res.render("user");
+    res.render("user"), { layout : 'user' };
 });
 
 router.get('/userSearch', (req, res) => {
-    res.render("userSearch");
+    res.render("userSearch"), { layout : 'userSearch' };
 });
 
 router.get('/viewUser', (req, res) => {
-    res.render("viewUser");
+    res.render("viewUser"), { layout : 'viewUser' };
 });
 module.exports = router;
