@@ -13,13 +13,13 @@ const joinButton = document.getElementById('join-button');
 
     if (joinButton) {
         joinButton.addEventListener('click', function (event) {
-            window.location.href = "/join";
+            window.location.href = "api/users/join";
         });
     }
 
     if (loginButton) {
         loginButton.addEventListener('click', function (event) {
-            window.location.href = "/login";
+            window.location.href = "api/users/login";
         });
     }
 
