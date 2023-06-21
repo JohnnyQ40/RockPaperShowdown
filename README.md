@@ -2,7 +2,7 @@
 
 ## Description
 
-Rock Paper Social is a multiplayer rock paper scissors game in which players are able to play rock paper scissors against friends online. Users are able to track there statistics and look up their stats along with the stats of their friends. Users are also able to create an account with a chosen username and password which will be encrypted and safely stored. While playing users will also have access to a chat room which lets them talk to their friends while playing games against them.
+Rock Paper Showdown is a multiplayer rock-paper-scissors game in which players are able to play rock-paper-scissors against friends and strangers online. Users are able to track there statistics and look up their stats along with the stats of their friends. Users are also able to create an account with a chosen username and password which will be encrypted and safely stored. While playing users will also have access to a chat room which lets them talk to their friends while playing games against them.
 
 ## Table of Contents
 
@@ -17,16 +17,16 @@ Rock Paper Social is a multiplayer rock paper scissors game in which players are
 To install the required dependencies, run the command: npm install
 
 ## Usage
-To use Rock Paper Social, access the "join" page. There you will be able create a valid username and password. From there you can select the "login" page. Once logged in you will have access to the application. 
+To use Rock Paper Showdown, access the "join" page. There you will be able create a valid username and password. From there you can select the "login" page. Once logged in you will have access to the application. 
 
 ## License
-None
+n/a
 
 ## Contributing
-
+n/a
 
 ## Tests
-
+n/a
 
 ## Questions
 
