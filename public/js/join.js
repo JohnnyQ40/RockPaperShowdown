@@ -18,6 +18,7 @@ document.querySelector('.join-form').addEventListener('submit', function (event)
             .then(data => {
                 if (data.message === 'User registered!') {
                     alert('User registration successful');
+                    window.location.href = "/login";
                 } else {
                     alert('Error: ' + data.error);
                 }
