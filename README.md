@@ -19,6 +19,8 @@ To install the required dependencies, run the command: npm install
 ## Usage
 To use Rock Paper Showdown, access the "join" page. There you will be able create a valid username and password. From there you can select the "login" page. Once logged in you will have access to the application. 
 
+The live application can be found at (https://rock-paper-showdown-ed328492c032.herokuapp.com/)
+
 ## License
 [MIT license](https://opensource.org/license/mit/)
 
@@ -43,12 +45,6 @@ Copyright 2023
       WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING 
       FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR 
       THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-## Contributing
-n/a
-
-## Tests
-n/a
 
 ## Questions
 
