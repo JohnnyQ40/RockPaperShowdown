@@ -11,7 +11,7 @@
     <body>
         <header>
         <nav>
-        <button class="btn btn-primary" type="button"> Back </button>   
+        <button class="btn btn-primary" type="button" id="toSearchPage"> Back </button>   
         </nav>
             {{#if logged_in}}
             {{#if user.username}}
@@ -26,5 +26,6 @@
         </main>
        {{/if}}
     {{/if}}
+    <script src="js/pageButtons.js"></script>
     </body>
 </html>

@@ -12,12 +12,12 @@
         <header>
             {{#if logged_in}}
             <nav>
-           <button class="btn btn-primary" type="button">View Messages</button> 
-           <button class="btn btn-primary" type="button">Challeges</button>     
+           <button class="btn btn-primary" type="button" id="toMassagePage">View Messages</button> 
+           <button class="btn btn-primary" type="button" id="toGamePage">Challeges</button>     
             </nav>
              <nav>
-           <button class="btn btn-primary" type="button">Logout</button> 
-           <button class="btn btn-primary" type="button">Change Name</button>     
+           <button class="btn btn-primary" type="button" id="toHomePage">Logout</button> 
+           <button class="btn btn-primary" type="button" id="changeName">Change Name</button>     
             </nav>
             
 
@@ -27,5 +27,6 @@
 
         </main>
        {{/if}}
+       <script src="js/pageButtons.js"></script>
     </body>
 </html>
