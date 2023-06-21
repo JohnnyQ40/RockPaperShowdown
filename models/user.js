@@ -35,6 +35,11 @@ User.init(
             allowNull: false,
             defaultValue: 0,
         },
+        ties: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            defaultValue: 0,
+        },
         rockPicks: {
             type: DataTypes.INTEGER,
             allowNull: false,
