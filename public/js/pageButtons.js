@@ -1,9 +1,3 @@
-//Home Page button
-document.getElementById('toHomePage').addEventListener('click', function (event) {
-
-    window.location.href = "/homePage";
-    
-});
 
 //join button
 document.getElementById('join').addEventListener('click', function (event) {
@@ -17,6 +11,13 @@ window.location.href = "/join";
 document.getElementById('login').addEventListener('click', function (event) {
 
     window.location.href = "/login";
+    
+});
+
+//Home Page button
+document.getElementById('toHomePage').addEventListener('click', function (event) {
+
+    window.location.href = "/homePage";
     
 });
 
