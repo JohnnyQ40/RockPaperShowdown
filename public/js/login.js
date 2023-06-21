@@ -16,7 +16,7 @@ document.querySelector('.login-form').addEventListener('submit', loginFormHandle
         });
             if (response.ok) {
                 console.log('logged in');
-                window.location.href = '../views/layouts/main';
+                window.location.href = '/userPage';
             } else {
                 console.log('cant login')
             }

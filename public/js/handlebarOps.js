@@ -1,6 +1,7 @@
-define(function(require) {
-    'use strict';
-    var Handlebars = require('handlebars');
+// define(function(require) {
+//     'use strict';
+    // var 
+    const Handlebars = require('handlebars');
     
     var cmpOps = {
       '&&': function(val1, val2) {
@@ -83,5 +84,7 @@ define(function(require) {
       
       Handlebars.registerHelper('cmp', cmp);
       
-      return cmp;
-    });
+    //   return cmp;
+    // });
+
+    module.exports = cmp;
