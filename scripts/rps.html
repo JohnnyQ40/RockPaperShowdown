@@ -45,9 +45,9 @@
         <div id="draft-div">
         <h1 id="time" style="text-align:center">Choose your fighter: 15</h1>
         <div id = "buttonDiv">
-        <button id="button0"><img src="https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/rock.png" alt="Rock"></button>
-        <button id="button1"><img src="https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/paper.png" alt="Paper"></button>
-        <button id="button2"><img src="https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/scissors.png" alt="Scissors"></button>
+        <button id="button0"><img src="https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/main/public/images/rock.png" alt="Rock"></button>
+        <button id="button1"><img src="https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/main/public/images/paper.png" alt="Paper"></button>
+        <button id="button2"><img src="https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/main/public/images/scissors.png" alt="Scissors"></button>
         </div>
         <div id="selection">
             <img id="selection-image">
@@ -107,6 +107,7 @@
                     resultsDiv.appendChild(draw);
                     resultsDiv.appendChild(matchResult);
                     var icon = document.createElement('img');
+
                     if(selection==0&&winner!=2){
                         icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/rock.png";
                     }else if(selection==1&&winner!=2){
