@@ -3,7 +3,7 @@ const { Game, User } = require('../../models');
 //-- unsure if User is necessary since users are present in games model
 
 
-//-- This is used for game room display page?
+//-- This is used for game room display page
 router.get('/', (req, res) => {
  Game.findAll({
     include: [{ model: User}] 
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
  })
 });
 
-//-- This is used for game room specific search?
+//-- This is used for game room specific search
 router.get('/:id', (req, res) => {
     Game.findByPk(req.params.id, {
         include: [{ model: User}]
