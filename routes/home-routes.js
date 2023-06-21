@@ -1,9 +1,6 @@
 const router = require("express").Router();
 const { User } = require("../models")
 
-router.get('/roomCreation', (req, res) => {
-    res.render("roomCreation", { layout : 'roomCreation' });
-});
 
 router.get('/', (req, res) => {
     res.render("homePage", { layout : 'main' });
@@ -29,8 +26,25 @@ router.get('/scorePage', (req, res) => {
     res.render("scorePage"), { layout : 'scorePage' };
 });
 
-router.get('/userPage', (req, res) => {
-    res.render("userPage"), { layout : 'userPage' };
+router.get('/userPage', async (req, res) => {
+    if (!req.session.user && !req.session.loggedIn) {
+        res.redirect('/login');
+        return;
+    }
+
+    try {
+        const userData = await User.findByPk(req.session.user.id);
+
+        res.render("user", { 
+            layout : 'userPage',
+            user: userData.get({ plain: true }),
+            logged_in: req.session.loggedIn 
+        });
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
 });
 
 router.get('/userProfile', (req, res) => {
@@ -96,7 +110,11 @@ router.post("/login", async (req, res) => {
         if (!validPassword) {
           return res.status(401).json({ error: "Invalid username or password" });
         }
+
+        req.session.user = userData.get({plain: true});
+        req.session.logginIn = true;
         res.json({ message: "Login successful", user: userData });
+        res.redirect("/userPage");
       } catch(error) {
         console.error("Error:", error);
         res.status(500).json({ error: "Internal server error" });

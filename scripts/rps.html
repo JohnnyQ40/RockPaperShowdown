@@ -5,35 +5,125 @@
     <title>Rock Paper Showdown | Game</title>
     <style>
         body {
+            background-image: url(https://static.vecteezy.com/system/resources/previews/007/780/304/non_2x/wild-wild-west-cowboy-silhouette-canyon-background-free-vector.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
             margin: 0;
             padding-bottom: 3rem;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
-
+        .draft-div {
+        display: flex;
+        flex-direction: row;
+        }
+        .buttonDiv {
+        margin: auto;
+        width: 25%;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        }
+        .selection {
+            margin:auto;
+            width:50%;
+            padding: 10px;
+        }
+        .results-div{
+            margin:auto;
+            width: 50%;
+            padding: 10px;
+        }
     </style>
 </head>
 
 <body>
+        <div id="draft-div">
+        <h1 id="time" style="text-align:center">Choose your fighter: 15</h1>
+        <div id = "buttonDiv">
+        <button id="button0"><img src="https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/rock.png" alt="Rock"></button>
+        <button id="button1"><img src="https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/paper.png" alt="Paper"></button>
+        <button id="button2"><img src="https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/scissors.png" alt="Scissors"></button>
+        </div>
+        <div id="selection">
+            <img id="selection-image">
+        </div>
+        </div>
+        <div id="results-div">
+            
+        </div>
     
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script>
+        let selection = 0;
         var socket = io();
-
-        var form = document.getElementById('form');
+        var draftDiv = document.getElementById('draft-div');
+        var resultsDiv = document.getElementById('results-div');
+        var timeEl = document.getElementById('time');
+        var button0 = document.getElementById('button0');
+        var button1 = document.getElementById('button1');
+        var button2 = document.getElementById('button2');
         var input = document.getElementById('input');
 
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            if (input.value) {
-                socket.emit('chat message', input.value);
-                input.value = '';
+        var secondsLeft = 15;
+
+            function setTime() {
+                console.log('timer set')
+                // Sets interval in variable
+                var timerInterval = setInterval(function () {
+                    secondsLeft--;
+                    timeEl.textContent ="Choose your fighter: "+ secondsLeft;
+
+                    if (secondsLeft === 0) {
+                        // Stops execution of action at set interval
+                        clearInterval(timerInterval);
+                        // Calls function to create and append image
+                        endDraft();
+                    }
+
+                }, 1500);
             }
+
+            function endDraft() {
+                    draftDiv.style.display = "none";
+                    console.log(selection +" selected")
+                    socket.emit('selection', selection);
+                    var matchResult = document.createElement('h2');
+                    matchResult.textContent = "Player 1 Wins!"
+                    resultsDiv.appendChild(matchResult);
+                    var icon = document.createElement('img');
+                    if(selection==0){
+                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/rock.png";
+                    }else if(selection==1){
+                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/paper.png";
+                    }else{
+                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/scissors.png";
+                    }
+                        resultsDiv.appendChild(icon);
+                }
+
+                setTime();
+
+        button0.addEventListener('click', function (e) {
+            selection = 0;
+            console.log(selection);
+            e.preventDefault();
+            selection  = 0;
         });
-        socket.on('chat message', function (msg) {
-            var item = document.createElement('li');
-            item.textContent = msg;
-            messages.appendChild(item);
-            window.scrollTo(0, document.body.scrollHeight);
+        button1.addEventListener('click', function (e) {
+            selection = 1;
+            console.log(selection);
+            e.preventDefault();
+        });
+        button2.addEventListener('click', function (e) {
+            selection = 2;
+            console.log(selection);
+            e.preventDefault();
+
+        });
+        socket.on('selection', function (selection) {
+            var item = document.createElement('h2');
+            item.textContent = selection;
+            draftDiv.appendChild(item);
         });
     </script>
 </body>
