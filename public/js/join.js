@@ -11,10 +11,9 @@ document.querySelector('.join-form').addEventListener('submit', function (event)
             body: JSON.stringify({ username, password })
         };
 
-        fetch('/api/join', requestConfig)
+        fetch('/join', requestConfig)
             .then(response => {
-                console.log(response);
-                response.json()
+                return response.json();
             })
             .then(data => {
                 if (data.message === 'User registered!') {
