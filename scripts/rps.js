@@ -7,14 +7,18 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 
+let player1 = 0;
+let player2 = 0;
+
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/rps.html');
 });
 io.on('connection', (socket) =>{
     console.log('a user connected!');
-     socket.on('chat message', (msg) => {
-    console.log('message: ' + msg);
-    io.emit('chat message', msg);
+     socket.on('selection', (selection) => {
+        player1 = selection;
+    console.log("player has selected: "+selection);
+    
   });
 });
 
