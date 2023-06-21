@@ -68,7 +68,6 @@
 
             function setTime() {
                 console.log('timer set')
-                // Sets interval in variable
                 var timerInterval = setInterval(function () {
                     secondsLeft--;
                     timeEl.textContent ="Choose your fighter: "+ secondsLeft;
@@ -102,17 +101,17 @@
                     var icon = document.createElement('img');
 
                     if(selection==0&&winner!=2){
-                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/rock.png";
+                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/main/public/images/rock.png";
                     }else if(selection==1&&winner!=2){
-                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/paper.png";
+                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/main/public/images/paper.png";
                     }else if(selection==2&&winner!=2){
-                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/scissors.png";
+                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/main/public/images/scissors.png";
                     }else if(selection==0&&winner==2){
-                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/paper.png";
+                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/main/public/images/paper.png";
                     }else if(selection==1&&winner==2){
-                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/scissors.png";
+                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/main/public/images/scissors.png";
                     }else{
-                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/rps/public/images/rock.png";
+                        icon.src = "https://raw.githubusercontent.com/JohnnyQ40/RockPaperShowdown/main/public/images/rock.png";
                     }
                         resultsDiv.appendChild(icon);
                 }
