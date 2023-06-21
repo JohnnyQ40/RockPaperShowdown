@@ -21,6 +21,7 @@ body {
     min-height: 100%;
     background-color: var(--yellow);
     align-items: center;
+    justify-content: space-evenly;
 }
 
 main {
@@ -68,6 +69,26 @@ button {
     border-radius: 5px;
     border: 0px;
     transition-duration: 0.3s;
+}
+
+
+.homePage {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    min-height: 100%;
+    background-image: url(../images/background.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+}
+
+.homeIcons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 section,
