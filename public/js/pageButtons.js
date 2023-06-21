@@ -1,80 +1,79 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+const joinButton = document.getElementById('join-button');
+    const loginButton = document.getElementById('login-button');
+    const toHomePage = document.getElementById('toHomePage');
+    const toSearchPage = document.getElementById('toSearchPage');
+    const toUserPage = document.getElementById('toUserPage');
+    const toUserProfile = document.getElementById('toUserProfile');
+    const toRoomSelect = document.getElementById('toRoomSelect');
+    const toRoomCreate = document.getElementById('toRoomCreate');
+    const toMessagePage = document.getElementById('toMessagePage');
+    const toGamePage = document.getElementById('toGamePage');
+    const toGameScores = document.getElementById('toGameScores');
 
-//join button
-document.getElementById('join').addEventListener('click', function (event) {
+    if (joinButton) {
+        joinButton.addEventListener('click', function (event) {
+            window.location.href = "/join";
+        });
+    }
 
-window.location.href = "/join";
+    if (loginButton) {
+        loginButton.addEventListener('click', function (event) {
+            window.location.href = "/login";
+        });
+    }
 
+    if (toHomePage) {
+        toHomePage.addEventListener('click', function (event) {
+            window.location.href = "/homePage";
+        });
+    }
+
+    if (toSearchPage) {
+        toSearchPage.addEventListener('click', function (event) {
+            window.location.href = "/userSearch";
+        });
+    }
+
+    if (toUserPage) {
+        toUserPage.addEventListener('click', function (event) {
+            window.location.href = "/user";
+        });
+    }
+
+    if (toUserProfile) {
+        toUserProfile.addEventListener('click', function (event) {
+            window.location.href = "/viewUser";
+        });
+    }
+
+    if (toRoomSelect) {
+        toRoomSelect.addEventListener('click', function (event) {
+            window.location.href = "/roomSelection";
+        });
+    }
+
+    if (toRoomCreate) {
+        toRoomCreate.addEventListener('click', function (event) {
+            window.location.href = "/roomCreation";
+        });
+    }
+
+    if (toMessagePage) {
+        toMessagePage.addEventListener('click', function (event) {
+            window.location.href = "/messagePage";
+        });
+    }
+
+    if (toGamePage) {
+        toGamePage.addEventListener('click', function (event) {
+            window.location.href = "/gameChoice";
+        });
+    }
+
+    if (toGameScores) {
+        toGameScores.addEventListener('click', function (event) {
+            window.location.href = "/gameScores";
+        });
+    }
 });
-
-//login button
-
-document.getElementById('login').addEventListener('click', function (event) {
-
-    window.location.href = "/login";
-    
-});
-
-//Home Page button
-document.getElementById('toHomePage').addEventListener('click', function (event) {
-
-    window.location.href = "/homePage";
-    
-});
-
-//Search Page button
-document.getElementById('toSearchPage').addEventListener('click', function (event) {
-
-    window.location.href = "/userSearch";
-    
-});
-
-//User Page button
-document.getElementById('toUserPage').addEventListener('click', function (event) {
-
-    window.location.href = "/user";
-    
-});
-
-//User Profile button
-document.getElementById('toUserProfile').addEventListener('click', function (event) {
-
-    window.location.href = "/viewUser";
-    
-});
-
-//Room Select button
-document.getElementById('toRoomSelect').addEventListener('click', function (event) {
-
-    window.location.href = "/roomSelection";
-    
-});
-
-//Room Create button
-document.getElementById('toRoomCreate').addEventListener('click', function (event) {
-
-    window.location.href = "/roomCreation";
-    
-});
-
-//Message Page button
-document.getElementById('toMassagePage').addEventListener('click', function (event) {
-
-    window.location.href = "/massagePage";
-    
-});
-// Game Page button
-document.getElementById('toGamePage').addEventListener('click', function (event) {
-
-    window.location.href = "/gameChoice";
-    
-});
-
-// Game Score Page button
-document.getElementById('toGameScores').addEventListener('click', function (event) {
-
-    window.location.href = "/gameScores";
-    
-});
-
-
-

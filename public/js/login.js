@@ -16,7 +16,7 @@ document.querySelector('.login-form').addEventListener('submit', loginFormHandle
         });
             if (response.ok) {
                 console.log('logged in');
-                window.location.href = '/userPage';
+                window.location.href = '/roomCreation';
             } else {
                 console.log('cant login')
             }
