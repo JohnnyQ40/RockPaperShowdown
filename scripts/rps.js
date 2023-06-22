@@ -30,9 +30,9 @@ function runGame(){
   }
 }
 runGame();
-server.listen(3002, () =>{
-    console.log('listening on *:3002');
-});
+// server.listen(3002, () =>{
+//     console.log('listening on *:3002');
+// });
 
 function game(choice1, choice2){
     if(choice1==choice2){
